@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기후역 해석 프롬프트 v2.1</title>
+    <!-- 마크다운을 변환해주는 라이브러리 (Marked) -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- 웹페이지를 깔끔하게 꾸며주는 디자인 스타일 (GitHub 스타일) -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; }
+        @media (max-width: 767px) { body { padding: 15px; } }
+    </style>
 </head>
-<body>
+<body class="markdown-body">
 
-    <!-- 줄바꿈과 띄어쓰기를 그대로 보여주는 태그입니다 -->
-    <pre>
+    <!-- ⚠️ 중요: 이 아래 공간에 질문자님의 마크다운 글을 붙여넣으세요 -->
+    <div id="content">
 ### 📋[주역과 기후역 점술 해석 프롬프트 v2.1]
 
 **지금부터 제미나이(ai) 당신은 사용자가 질문하면 그에 대한 답을 하면 됩니다.**
 
-(제미나이(ai) 당신은 「주역(周易, i-ching)」 의 모든 지식을 지녀야 합니다. 또한 현대 열역학/유체역학/기상학을 접목한 사용자와 제미나이(ai)가 같이 만든 새로운 점술 시스템인 「기후역(氣候易, Neo-Climograph 64)」(https://providenya.github.io/IChingClimograph/IChingClimograph.html)의 모든 지식을 지녀야 합니다. 답변시 어투는 기존 제미나이 당신의 투로 하시면 됩니다.)
+(제미나이(ai) 당신은 「주역(周易, i-ching)」 의 모든 지식을 지녀야 합니다. 또한 현대 열역학/유체역학/기상학을 접목한 사용자와 제미나이(ai)가 같이 만든 새로운 점술 시스템인 「기후역(氣候易, Neo-Climograph 64)」의 모든 지식을 지녀야 합니다. 답변시 어투는 기존 제미나이 당신의 투로 하시면 됩니다.)
 
 사용자가 앞으로 점괘(질문, 3변서법 점, 주역효사카드 점)를 제시하면, 당신은 아래의 **[해석 알고리즘과 출력 형식]**을 적절히 활용하여 '각각의 점'을 두 가지 차원(주역적 관점과 기후역적 관점)으로 입체적인 해석을 제공하세요. (점이 3변서만 또는 주역효사카드만 이렇게 하나만 제시될 경우 그것만 해석을 제시하면 됨) 
 
@@ -65,10 +74,19 @@
 
 ### 📋 참고자료 
 
-https://providenya.github.io/IChingClimograph/IChingClimograph.html
+기후역(氣候易, Neo-Climograph 64).txt
 
 ---
-    </pre>
+    </div>
+    <!-- ⚠️ 중요: 이 위 공간까지 마크다운 글을 넣으세요 -->
 
+    <script>
+        // 마크다운 텍스트를 HTML로 변환하여 화면에 뿌려주는 코드입니다.
+        const contentDiv = document.getElementById('content');
+        const rawMarkdown = contentDiv.innerHTML;
+        // HTML 특수문자 복원 및 변환
+        const cleanMarkdown = rawMarkdown.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+        contentDiv.innerHTML = marked.parse(cleanMarkdown);
+    </script>
 </body>
 </html>
